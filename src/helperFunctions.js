@@ -13,9 +13,18 @@ export const calculateWinner = squares => {
   for (let i = 0; i < winningLines.length; i++) {
     const [a, b, c] = winningLines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return [squares[a], winningLines[i]];
     }
   }
 
-  return null;
+  return [null, null];
+}
+
+export const calculateRowAndCol = location => {
+  const allLocations = [
+    [1, 1], [1, 2], [1, 3],
+    [2, 1], [2, 2], [2, 3],
+    [3, 1], [3, 2], [3, 3],
+  ];
+  return allLocations[location];
 }

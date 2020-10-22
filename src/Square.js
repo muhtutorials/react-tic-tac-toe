@@ -1,21 +1,21 @@
 import React from 'react';
 
 
-const Square = ({value, callback}) => (
-  <button style={style} onClick={callback}>
+const Square = ({value, index, winningRow, callback}) => (
+  <button style={styleFn(index, winningRow)} onClick={callback}>
     {value}
   </button>
 );
 
 
-const style = {
+const styleFn = (index, winningRow) => ({
   background: 'lightblue',
-  border: '5px solid darkblue',
+  border: `5px solid ${winningRow && winningRow.includes(index) ? 'red' : 'darkblue'}`,
   fontSize: '50px',
   fontWeight: 'pointer',
   cursor: 'pointer',
-  outline: 'none'
-}
+  outline: 'none',
+});
 
 
 export default Square;

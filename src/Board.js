@@ -3,10 +3,17 @@ import React from 'react';
 import Square from './Square';
 
 
-const Board = ({squares, callback}) => {
+const Board = ({squares, winningRow, callback}) => {
   return (
     <div style={style}>
-      {squares.map((value, index) => <Square value={value} callback={() => callback(index)} key={index} />)}
+      {squares.map((value, index) =>
+        <Square
+          key={index}
+          value={value}
+          index={index}
+          winningRow={winningRow}
+          callback={() => callback(index)}
+        />)}
     </div>
   )
 }
